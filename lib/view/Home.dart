@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:coffee_now/util/colors.dart';
+import 'package:coffee_now/widget/OvalPainter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,6 +17,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+
+    Size screen = MediaQuery.sizeOf(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -100,13 +106,42 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              Expanded(
-                child: Container(
-                  width: 1000,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFF01895A),
-                    shape: OvalBorder(),
-                  ),
+              SizedBox(
+                height: 60,
+              ),
+              CustomPaint(
+                painter: OvalPainter(),
+                size: Size(screen.width, screen.height),
+                child: SizedBox(
+                  height: screen.width,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+                        Transform.rotate(
+                          
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FlutterLogo(
+                                size: 50,
+                              ),FlutterLogo(
+                                size: 50,
+                              ),FlutterLogo(
+                                size: 50,
+                              ),FlutterLogo(
+                                size: 50,
+                              ),FlutterLogo(
+                                size: 50,
+                              ),FlutterLogo(
+                                size: 50,
+                              ),FlutterLogo(
+                                size: 50,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )
                 ),
               )
             ],
